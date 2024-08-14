@@ -1,4 +1,4 @@
-package frontend;
+package org.project1.frontend;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license

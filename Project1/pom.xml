@@ -8,6 +8,25 @@
     <artifactId>Project1</artifactId>
     <version>1.0-SNAPSHOT</version>
     <dependencies>
+
+        <dependency>
+            <groupId>de.jflex</groupId>
+            <artifactId>jflex</artifactId>
+            <version>1.9.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.github.vbmacher</groupId>
+            <artifactId>java-cup-runtime</artifactId>
+            <version>11b-20160615-3</version>
+        </dependency>
+        <!--
+        <dependency>
+            <groupId>com.github.vbmacher</groupId>
+            <artifactId>java-cup</artifactId>
+            <version>11b-20160615-3</version>
+        </dependency>
+        -->
         <dependency>
             <groupId>org.netbeans.external</groupId>
             <artifactId>AbsoluteLayout</artifactId>
@@ -19,5 +38,37 @@
         <maven.compiler.target>22</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>de.jflex</groupId>
+                <artifactId>jflex-maven-plugin</artifactId>
+                <version>1.9.1</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>com.github.vbmacher</groupId>
+                <artifactId>cup-maven-plugin</artifactId>
+                <version>11b-20160615-3</version>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>generate</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <outputDirectory>${project.build.directory}/generated-sources/cup</outputDirectory>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
 
 </project>
